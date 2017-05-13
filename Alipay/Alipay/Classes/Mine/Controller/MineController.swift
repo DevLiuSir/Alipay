@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell" UICollectionViewController
 
-class MineController: UICollectionViewController {
+class MineController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class MineController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // 注册 cell
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         configNavigationBar()
     }
@@ -41,24 +41,15 @@ class MineController: UICollectionViewController {
         navigationController?.navigationBar.shadowImage = image
         
         /* 右边的Item */
+        /// 设置按钮
+        let settingBtn = UIButton()    
+        settingBtn.setTitle("设置", for: .normal)
+        settingBtn.sizeToFit()
+        settingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        settingBtn.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
         
-        /// 通讯录按钮
-        let addressBook = UIButton()
-        addressBook.setImage(UIImage(named: "home_contacts"), for: .normal)
-        addressBook.sizeToFit()
-        addressBook.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
-        
-        /// 加号按钮
-        let addBtn = UIButton()
-        addBtn.setImage(UIImage(named: "ap_more"), for: .normal)
-        addBtn.sizeToFit()
-        addBtn.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
-        
-        let addBtnItem = UIBarButtonItem(customView: addBtn)
-        let addressBookItem = UIBarButtonItem(customView: addressBook)
-        
-        navigationItem.rightBarButtonItems = [addBtnItem, addressBookItem]
-
+        let settingBtnItem = UIBarButtonItem(customView: settingBtn)
+        navigationItem.rightBarButtonItem = settingBtnItem
     }
     
     // 通讯录按钮点击事件
