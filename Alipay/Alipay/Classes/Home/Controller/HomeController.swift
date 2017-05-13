@@ -87,14 +87,17 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configNavigationBar()
         configUI()
-        
     }
-    
+}
+
+// MARK: - 配置 UI 界面
+extension HomeController {
     
     /// 配置 UI 界面
-    private func configUI() {
+    fileprivate func configUI() {
+        
+        configNavigationBar()
         
         // 添加控件
         view.addSubview(topView)
@@ -112,14 +115,11 @@ class HomeController: UIViewController {
         }
     }
     
-    
     /// 配置导航栏
     private func configNavigationBar() {
         
-        
         // 设置导航栏LOGO
         navigationItem.titleView = searchBarController.searchBar
-        
         
         // 设置导航栏背景色
         navigationController?.navigationBar.barTintColor = LightBlue
@@ -136,7 +136,7 @@ class HomeController: UIViewController {
         addressBook.setImage(UIImage(named: "home_contacts"), for: .normal)
         addressBook.sizeToFit()
         addressBook.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
-    
+        
         /// 加号按钮
         let addBtn = UIButton()
         addBtn.setImage(UIImage(named: "ap_more"), for: .normal)
@@ -147,23 +147,19 @@ class HomeController: UIViewController {
         let addressBookItem = UIBarButtonItem(customView: addressBook)
         
         navigationItem.rightBarButtonItems = [addBtnItem, addressBookItem]
-        
-
-        
-        
-        
     }
     
-    // 通讯录按钮点击事件
-    @objc private func addressBookBtnClicked() {
-        
-    }
-    
-
 }
 
-
-
+// MARK: - 事件监听
+extension HomeController {
+    
+    // 通讯录按钮点击事件
+    @objc fileprivate func addressBookBtnClicked() {
+     
+        print("点击了导航栏上的按钮")
+    }
+}
 
 
 
