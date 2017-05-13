@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Kingfisher (3.6.0)
+  - SnapKit (3.2.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+
+PODFILE CHECKSUM: d9f5490d37ac8879fd1b5cd30cabd8ec916fc372
+
+COCOAPODS: 1.2.0

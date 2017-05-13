@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B3DFE171EBA25D0002F2D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */; };
+		6B3DFE1E1EBA25D0002F2D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */; };
+		6B3DFE211EBA25D0002F2D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE1F1EBA25D0002F2D09 /* LaunchScreen.storyboard */; };
+		6B3DFE621EBA2D64002F2D09 /* Business.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE4D1EBA2D64002F2D09 /* Business.storyboard */; };
+		6B3DFE631EBA2D64002F2D09 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE521EBA2D64002F2D09 /* Friends.storyboard */; };
+		6B3DFE641EBA2D64002F2D09 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE571EBA2D64002F2D09 /* Home.storyboard */; };
+		6B3DFE651EBA2D64002F2D09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE5B1EBA2D64002F2D09 /* Main.storyboard */; };
+		6B3DFE661EBA2D64002F2D09 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE5C1EBA2D64002F2D09 /* TabBarController.swift */; };
+		6B3DFE671EBA2D64002F2D09 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE5F1EBA2D64002F2D09 /* Mine.storyboard */; };
+		6B3DFE6A1EBA31B3002F2D09 /* Alipay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE691EBA31B3002F2D09 /* Alipay+Extension.swift */; };
+		6B3DFE6C1EBA3898002F2D09 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE6B1EBA3898002F2D09 /* HomeController.swift */; };
+		6B3DFE6E1EBA3945002F2D09 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE6D1EBA3945002F2D09 /* HomeTopView.swift */; };
+		6B4A08A21EC59CDE00B2FC2D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A089F1EC59CDE00B2FC2D /* SearchViewController.swift */; };
+		6B4A08A31EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A08A11EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift */; };
+		6B4A08A51EC5A3E700B2FC2D /* MineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A08A41EC5A3E700B2FC2D /* MineController.swift */; };
+		6B4A08A71EC5A51C00B2FC2D /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A08A61EC5A51C00B2FC2D /* FriendsController.swift */; };
+		6B87F7CE1EC4E0A70081C937 /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B87F7CD1EC4E0A70081C937 /* BusinessController.swift */; };
+		6B87F7D01EC4EC8D0081C937 /* HomeTopViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B87F7CF1EC4EC8D0081C937 /* HomeTopViewButton.swift */; };
+		6B87F7D21EC4EC9A0081C937 /* HomeTopViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B87F7D11EC4EC9A0081C937 /* HomeTopViewButton.xib */; };
+		78327F5708BE4E673918DD29 /* Pods_Alipay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E345F06E8F2A7973BF069C31 /* Pods_Alipay.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		627427278701734693AE510B /* Pods-Alipay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alipay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alipay/Pods-Alipay.debug.xcconfig"; sourceTree = "<group>"; };
+		6B3DFE131EBA25D0002F2D09 /* Alipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
+		6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B3DFE201EBA25D0002F2D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6B3DFE221EBA25D0002F2D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B3DFE4D1EBA2D64002F2D09 /* Business.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Business.storyboard; sourceTree = "<group>"; };
+		6B3DFE521EBA2D64002F2D09 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		6B3DFE571EBA2D64002F2D09 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6B3DFE5B1EBA2D64002F2D09 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6B3DFE5C1EBA2D64002F2D09 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6B3DFE5F1EBA2D64002F2D09 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
+		6B3DFE691EBA31B3002F2D09 /* Alipay+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alipay+Extension.swift"; sourceTree = "<group>"; };
+		6B3DFE6B1EBA3898002F2D09 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		6B3DFE6D1EBA3945002F2D09 /* HomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
+		6B4A089F1EC59CDE00B2FC2D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		6B4A08A11EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotSearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B4A08A41EC5A3E700B2FC2D /* MineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineController.swift; sourceTree = "<group>"; };
+		6B4A08A61EC5A51C00B2FC2D /* FriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		6B87F7CD1EC4E0A70081C937 /* BusinessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
+		6B87F7CF1EC4EC8D0081C937 /* HomeTopViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTopViewButton.swift; sourceTree = "<group>"; };
+		6B87F7D11EC4EC9A0081C937 /* HomeTopViewButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTopViewButton.xib; sourceTree = "<group>"; };
+		D725956F6EAACC5D58D3ABF9 /* Pods-Alipay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alipay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alipay/Pods-Alipay.release.xcconfig"; sourceTree = "<group>"; };
+		E345F06E8F2A7973BF069C31 /* Pods_Alipay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alipay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B3DFE101EBA25D0002F2D09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78327F5708BE4E673918DD29 /* Pods_Alipay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B3DFE0A1EBA25D0002F2D09 = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE151EBA25D0002F2D09 /* Alipay */,
+				6B3DFE141EBA25D0002F2D09 /* Products */,
+				C704A1FF659CD8703B767241 /* Pods */,
+				B900CD4E52773DB53D53DEDB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6B3DFE141EBA25D0002F2D09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE131EBA25D0002F2D09 /* Alipay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B3DFE151EBA25D0002F2D09 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE4A1EBA2D64002F2D09 /* Classes */,
+				6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */,
+				6B3DFE1F1EBA25D0002F2D09 /* LaunchScreen.storyboard */,
+				6B3DFE221EBA25D0002F2D09 /* Info.plist */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
+		6B3DFE4A1EBA2D64002F2D09 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE5A1EBA2D64002F2D09 /* Main */,
+				6B3DFE551EBA2D64002F2D09 /* Home */,
+				6B3DFE4B1EBA2D64002F2D09 /* Business */,
+				6B3DFE501EBA2D64002F2D09 /* Friends */,
+				6B3DFE5D1EBA2D64002F2D09 /* Mine */,
+				6B3DFE681EBA31B3002F2D09 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6B3DFE4B1EBA2D64002F2D09 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE4E1EBA2D64002F2D09 /* Model */,
+				6B3DFE4F1EBA2D64002F2D09 /* View */,
+				6B3DFE4C1EBA2D64002F2D09 /* Controller */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		6B3DFE4C1EBA2D64002F2D09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE4D1EBA2D64002F2D09 /* Business.storyboard */,
+				6B87F7CD1EC4E0A70081C937 /* BusinessController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B3DFE4E1EBA2D64002F2D09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3DFE4F1EBA2D64002F2D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3DFE501EBA2D64002F2D09 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE531EBA2D64002F2D09 /* Model */,
+				6B3DFE541EBA2D64002F2D09 /* View */,
+				6B3DFE511EBA2D64002F2D09 /* Controller */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		6B3DFE511EBA2D64002F2D09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE521EBA2D64002F2D09 /* Friends.storyboard */,
+				6B4A08A61EC5A51C00B2FC2D /* FriendsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B3DFE531EBA2D64002F2D09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3DFE541EBA2D64002F2D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3DFE551EBA2D64002F2D09 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE581EBA2D64002F2D09 /* Model */,
+				6B3DFE591EBA2D64002F2D09 /* View */,
+				6B3DFE561EBA2D64002F2D09 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6B3DFE561EBA2D64002F2D09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B4A089D1EC59CDE00B2FC2D /* Search */,
+				6B3DFE571EBA2D64002F2D09 /* Home.storyboard */,
+				6B3DFE6B1EBA3898002F2D09 /* HomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B3DFE581EBA2D64002F2D09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3DFE591EBA2D64002F2D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE6D1EBA3945002F2D09 /* HomeTopView.swift */,
+				6B87F7CF1EC4EC8D0081C937 /* HomeTopViewButton.swift */,
+				6B87F7D11EC4EC9A0081C937 /* HomeTopViewButton.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3DFE5A1EBA2D64002F2D09 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE5B1EBA2D64002F2D09 /* Main.storyboard */,
+				6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */,
+				6B3DFE5C1EBA2D64002F2D09 /* TabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6B3DFE5D1EBA2D64002F2D09 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE601EBA2D64002F2D09 /* Model */,
+				6B3DFE611EBA2D64002F2D09 /* View */,
+				6B3DFE5E1EBA2D64002F2D09 /* Controller */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		6B3DFE5E1EBA2D64002F2D09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE5F1EBA2D64002F2D09 /* Mine.storyboard */,
+				6B4A08A41EC5A3E700B2FC2D /* MineController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B3DFE601EBA2D64002F2D09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3DFE611EBA2D64002F2D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3DFE681EBA31B3002F2D09 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6B3DFE691EBA31B3002F2D09 /* Alipay+Extension.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		6B4A089D1EC59CDE00B2FC2D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B4A089E1EC59CDE00B2FC2D /* Controller */,
+				6B4A08A01EC59CDE00B2FC2D /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B4A089E1EC59CDE00B2FC2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B4A089F1EC59CDE00B2FC2D /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B4A08A01EC59CDE00B2FC2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B4A08A11EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B900CD4E52773DB53D53DEDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E345F06E8F2A7973BF069C31 /* Pods_Alipay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C704A1FF659CD8703B767241 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				627427278701734693AE510B /* Pods-Alipay.debug.xcconfig */,
+				D725956F6EAACC5D58D3ABF9 /* Pods-Alipay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B3DFE121EBA25D0002F2D09 /* Alipay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B3DFE251EBA25D0002F2D09 /* Build configuration list for PBXNativeTarget "Alipay" */;
+			buildPhases = (
+				381582182B7B2984A3D04954 /* [CP] Check Pods Manifest.lock */,
+				6B3DFE0F1EBA25D0002F2D09 /* Sources */,
+				6B3DFE101EBA25D0002F2D09 /* Frameworks */,
+				6B3DFE111EBA25D0002F2D09 /* Resources */,
+				26CB10E4B0004C533C221885 /* [CP] Embed Pods Frameworks */,
+				073AED826590132BE4FA1177 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alipay;
+			productName = Alipay;
+			productReference = 6B3DFE131EBA25D0002F2D09 /* Alipay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B3DFE0B1EBA25D0002F2D09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = LC;
+				TargetAttributes = {
+					6B3DFE121EBA25D0002F2D09 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6B3DFE0E1EBA25D0002F2D09 /* Build configuration list for PBXProject "Alipay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6B3DFE0A1EBA25D0002F2D09;
+			productRefGroup = 6B3DFE141EBA25D0002F2D09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B3DFE121EBA25D0002F2D09 /* Alipay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B3DFE111EBA25D0002F2D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B3DFE631EBA2D64002F2D09 /* Friends.storyboard in Resources */,
+				6B87F7D21EC4EC9A0081C937 /* HomeTopViewButton.xib in Resources */,
+				6B3DFE641EBA2D64002F2D09 /* Home.storyboard in Resources */,
+				6B3DFE211EBA25D0002F2D09 /* LaunchScreen.storyboard in Resources */,
+				6B3DFE651EBA2D64002F2D09 /* Main.storyboard in Resources */,
+				6B3DFE671EBA2D64002F2D09 /* Mine.storyboard in Resources */,
+				6B3DFE621EBA2D64002F2D09 /* Business.storyboard in Resources */,
+				6B3DFE1E1EBA25D0002F2D09 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		073AED826590132BE4FA1177 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alipay/Pods-Alipay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26CB10E4B0004C533C221885 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alipay/Pods-Alipay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		381582182B7B2984A3D04954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B3DFE0F1EBA25D0002F2D09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B3DFE6C1EBA3898002F2D09 /* HomeController.swift in Sources */,
+				6B87F7CE1EC4E0A70081C937 /* BusinessController.swift in Sources */,
+				6B4A08A21EC59CDE00B2FC2D /* SearchViewController.swift in Sources */,
+				6B3DFE6E1EBA3945002F2D09 /* HomeTopView.swift in Sources */,
+				6B3DFE171EBA25D0002F2D09 /* AppDelegate.swift in Sources */,
+				6B4A08A71EC5A51C00B2FC2D /* FriendsController.swift in Sources */,
+				6B4A08A31EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift in Sources */,
+				6B3DFE661EBA2D64002F2D09 /* TabBarController.swift in Sources */,
+				6B3DFE6A1EBA31B3002F2D09 /* Alipay+Extension.swift in Sources */,
+				6B4A08A51EC5A3E700B2FC2D /* MineController.swift in Sources */,
+				6B87F7D01EC4EC8D0081C937 /* HomeTopViewButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6B3DFE1F1EBA25D0002F2D09 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B3DFE201EBA25D0002F2D09 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B3DFE231EBA25D0002F2D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B3DFE241EBA25D0002F2D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B3DFE261EBA25D0002F2D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 627427278701734693AE510B /* Pods-Alipay.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Alipay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LC.Alipay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6B3DFE271EBA25D0002F2D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D725956F6EAACC5D58D3ABF9 /* Pods-Alipay.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Alipay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LC.Alipay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B3DFE0E1EBA25D0002F2D09 /* Build configuration list for PBXProject "Alipay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B3DFE231EBA25D0002F2D09 /* Debug */,
+				6B3DFE241EBA25D0002F2D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B3DFE251EBA25D0002F2D09 /* Build configuration list for PBXNativeTarget "Alipay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B3DFE261EBA25D0002F2D09 /* Debug */,
+				6B3DFE271EBA25D0002F2D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B3DFE0B1EBA25D0002F2D09 /* Project object */;
+}

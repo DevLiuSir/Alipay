@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2NB-tK-a0I">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Business Controller-->
+        <scene sceneID="A0M-6e-T0A">
+            <objects>
+                <viewController id="wav-Fv-hcS" customClass="BusinessController" customModule="Alipay" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gxs-Zz-xXZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="n27-Uw-dOj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BcT-Y5-YLB">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7jr-ni-v1q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQq-7l-bu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="466"/>
+        </scene>
+        <!--口碑-->
+        <scene sceneID="Ej8-RR-7MQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2NB-tK-a0I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="口碑" image="TabBar_Businesses" selectedImage="TabBar_Businesses_Sel" id="a4q-DQ-Plc"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="7hZ-lj-xch">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wav-Fv-hcS" kind="relationship" relationship="rootViewController" id="whT-9Y-sHm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLm-rc-ib2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493.60000000000002" y="465.51724137931041"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TabBar_Businesses" width="30" height="30"/>
+        <image name="TabBar_Businesses_Sel" width="30" height="30"/>
+    </resources>
+</document>
