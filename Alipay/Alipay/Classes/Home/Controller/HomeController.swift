@@ -52,6 +52,8 @@ class HomeController: UIViewController {
         // 自动调整搜索框大小
         searchController.searchBar.sizeToFit()
         
+        searchController.searchBar.delegate = self
+        
         // MARK: 改变提示文字颜色\输入框背景
         
         // 1.根据key取出搜索框中的文本输入框
@@ -62,9 +64,8 @@ class HomeController: UIViewController {
         // 设置键盘样式
         searchFiled?.keyboardType = .URL
 
-        
         // 2.设置文本输入框背景颜色
-        searchFiled?.backgroundColor = UIColor(red:0.11, green:0.45, blue:0.71, alpha:1.00)
+        searchFiled?.backgroundColor = textFieldBackgroundColor
         
         // 3.然后取出文本输入框的提示文字
         let PlaceholderLabel = searchFiled?.value(forKey: "placeholderLabel") as? UILabel
@@ -91,10 +92,10 @@ class HomeController: UIViewController {
     }
 }
 
-// MARK: - 配置 UI 界面
+// MARK: - 配置UI界面
 extension HomeController {
     
-    /// 配置 UI 界面
+    /// 配置UI界面
     fileprivate func configUI() {
         
         configNavigationBar()
@@ -121,9 +122,6 @@ extension HomeController {
         // 设置导航栏LOGO
         navigationItem.titleView = searchBarController.searchBar
         
-        // 设置导航栏背景色
-        navigationController?.navigationBar.barTintColor = LightBlue
-        
         // 取消导航栏底部的阴影线
         let image = UIImage()
         navigationController?.navigationBar.setBackgroundImage(image, for: .default)
@@ -131,17 +129,22 @@ extension HomeController {
         
         /* 右边的Item */
         
+        /// 尺寸
+        let size = CGSize(width: 30, height: 30)
+        
         /// 通讯录按钮
         let addressBook = UIButton()
         addressBook.setImage(UIImage(named: "home_contacts"), for: .normal)
-        addressBook.sizeToFit()
+//        addressBook.sizeToFit()
+        addressBook.frame = CGRect(origin: CGPoint.zero, size: size)
         addressBook.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
         
         /// 加号按钮
         let addBtn = UIButton()
         addBtn.setImage(UIImage(named: "ap_more"), for: .normal)
-        addBtn.sizeToFit()
-        addBtn.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
+//        addBtn.sizeToFit()
+        addBtn.frame = CGRect(origin: CGPoint.zero, size: size)
+        addBtn.addTarget(self, action: #selector(addBtnClicked(_:)), for: .touchUpInside)
         
         let addBtnItem = UIBarButtonItem(customView: addBtn)
         let addressBookItem = UIBarButtonItem(customView: addressBook)
@@ -159,7 +162,140 @@ extension HomeController {
      
         print("点击了导航栏上的按钮")
     }
+    
+    /// 加号按钮点击事件
+    @objc fileprivate func addBtnClicked(_ sender: UIButton) {
+        print("点击了+号按钮!!!")
+        
+        // 以popover的方式, 展现一个视图控制器
+        // 1.创建弹出控制器
+        let popVC = PopViewController()
+        
+        // 设置转场动画的样式
+        popVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // 如果sourceView是UIBarButtonItem类型，必须要有下面这一句.
+        // 这里的sender是UIButton类型的，所已不需要上面那一句
+        popVC.popoverPresentationController?.sourceView = sender
+        
+        //popVC.popoverPresentationController?.barButtonItem = sender
+        
+        // 设置箭头的位置，原点可以参照某一个控件的尺寸设置，宽高通常用于设置附加的偏移量，通常传入0即可
+        // 指定箭头所指区域的矩形框范围（位置和尺寸），以view的左上角为坐标原点
+        popVC.popoverPresentationController?.sourceRect = sender.bounds
+        
+        
+        // 取消箭头
+        //popVC.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
+        
+        // 设置转场动画的代理
+        popVC.popoverPresentationController?.delegate = self
+        
+        popVC.popoverPresentationController?.backgroundColor = UIColor.white
+        
+        // 弹出控制器
+        present(popVC, animated: true, completion: nil)
+
+    }
 }
+
+
+// MARK: - 遵守 UIPopoverPresentationControllerDelegate 协议
+extension HomeController: UIPopoverPresentationControllerDelegate {
+    // 模态动画的样式
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        // 不使用系统默认的展现样式！
+        return UIModalPresentationStyle.none
+    }
+    // 弹框消失时调用的方法
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        
+    }
+    
+    // 点击蒙版是否消失，默认为true
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
+    
+    
+}
+
+// MARK: - 遵守 UISearchBarDelegate 协议
+extension HomeController : UISearchBarDelegate {
+    
+    // MARK: touchesBegan: 点击屏幕时,触发该方法
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // 设置 searchBar 不再是第一响应
+        //        searchBarController.searchBar.resignFirstResponder()
+        
+    }
+    
+    // MARK: searchBarShouldBeginEditing: 当点击搜索框进行编辑时,触发该方法
+    // false: searchBar 成为第一响应者  true: searchBar 不成为第一响应者
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        print("............点击了搜索框")
+        
+        // MARK: 为搜索控制器添加导航栏
+        
+        // 1.0 创建搜索控制器
+        let search = SearchViewController()
+        
+        search.view.backgroundColor = UIColor.groupTableViewBackground
+        
+        // MARK: 改变弹出控制器 搜索框 提示文字颜色\输入框背景
+        
+        // 1.1 根据key取出搜索框中的文本输入框
+        let searchFiled = search.searchBar.value(forKey: "searchField") as? UITextField
+        
+        // 1.2 设置文本输入框背景颜色
+        searchFiled?.backgroundColor = textFieldBackgroundColor
+        
+        // 1.3 然后取出文本输入框的提示文字
+        let PlaceholderLabel = searchFiled?.value(forKey: "placeholderLabel") as? UILabel
+        
+        // 1.4 设置提示文字颜色
+        PlaceholderLabel?.textColor = UIColor.white
+        
+        // 1.5 设置文本输入框, 输入文本颜色
+        searchFiled?.textColor = UIColor.white
+        
+        // 2.0 设置 搜索控制器 为导航控制器的 根控制器
+        let nav = UINavigationController(rootViewController: search)
+        
+        // 2.1 设置导航控制器相关属性
+        nav.navigationBar.barTintColor = LightBlue
+        nav.navigationBar.isTranslucent = false
+        nav.navigationBar.tintColor = UIColor.white
+        
+        // 3.跳转到导航控制器
+        // 模态跳转到控制器
+        self.navigationController?.present(nav, animated: true, completion: nil)
+        
+        // 非模态跳转
+        //  navigationController?.pushViewController(search, animated: true)
+        
+        
+        // 延迟1秒执行
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * NSEC_PER_SEC))/Double(NSEC_PER_SEC) , execute: {
+            
+            // searchBar 成为第一响应, 从而弹出键盘
+            search.searchBar.becomeFirstResponder()
+        })
+        
+        
+        
+        
+        return false
+    }
+    
+    
+}
+
+
+
 
 
 

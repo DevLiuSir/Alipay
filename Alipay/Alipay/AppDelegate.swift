@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: 设置导航栏\工具栏的外观颜色
         /// 外观设置, 全局有效
         UINavigationBar.appearance().tintColor = UIColor.white
-        //UITabBar.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().barTintColor = LightBlue
         
         // MARK: 设置TabBar 选中\未选中状态下的文字颜色
         // 只改变文字颜色

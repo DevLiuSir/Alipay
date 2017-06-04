@@ -22,5 +22,6 @@ let refresh_HeaderViewHeight: CGFloat = 90  // 刷新视图高度
 let refresh_FooterViewHeight: CGFloat = 60  // 底部加载更多视图高度
 let SpreadMaxH:CGFloat = screenH - 64       // 默认下拉展开的最大高度
 
-let LightBlue = UIColor(red:0.12, green:0.52, blue:0.81, alpha:1.00)          //全局颜色: 淡蓝色
-///UIColor(red:0.12, green:0.52, blue:0.81, alpha:1.00)
+let LightBlue = UIColor(red:0.12, green:0.52, blue:0.81, alpha:1.00)                //全局颜色: 淡蓝色
+let darkBlue = UIColor(red:0.02, green:0.09, blue:0.15, alpha:1.00)                 //全局颜色: 深蓝
+let textFieldBackgroundColor = UIColor(red:0.11, green:0.45, blue:0.71, alpha:1.00) //全局颜色: 文本输入框背景色

@@ -28,11 +28,12 @@ class HotSearchCollectionViewCell: UICollectionViewCell {
         
         let hotButton = UIButton(type: .custom)
         // 设置按钮 边框\背景颜色
-        hotButton.backgroundColor = UIColor(red:0.07, green:0.14, blue:0.19, alpha:1.00)
+        //hotButton.backgroundColor = UIColor(red:0.07, green:0.14, blue:0.19, alpha:1.00)
+        hotButton.backgroundColor = UIColor.groupTableViewBackground
 //        hotButton.layer.borderColor = UIColor.white.cgColor
         
         // 边框宽度
-        hotButton.layer.borderWidth = 0.5
+//        hotButton.layer.borderWidth = 0.5
         
         // 设置按钮圆角
         hotButton.layer.cornerRadius = 5
@@ -42,7 +43,7 @@ class HotSearchCollectionViewCell: UICollectionViewCell {
         hotButton.isUserInteractionEnabled = true
         
         // 设置文字颜色\字体大小\对齐方式
-        hotButton.setTitleColor(UIColor.white, for: .normal)
+        hotButton.setTitleColor(UIColor.black, for: .normal)
         hotButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
         // 按钮文字对齐方式

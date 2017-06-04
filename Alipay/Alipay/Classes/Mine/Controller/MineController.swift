@@ -33,7 +33,7 @@ class MineController: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         // 设置导航栏背景色
-        navigationController?.navigationBar.barTintColor = LightBlue
+//        navigationController?.navigationBar.barTintColor = LightBlue
         
         // 取消导航栏底部的阴影线
         let image = UIImage()

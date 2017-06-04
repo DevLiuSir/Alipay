@@ -11,6 +11,8 @@ import UIKit
 // MARK: - 重用标识符
 private let reuseIdentifier = "hotSearch"
 private let reuseHeaderIdentifier = "hotHeader"
+
+// MARK: - 全局变量
 private let magin: CGFloat = 5                              // 间距
 private let layout_minimumLineSpacing: CGFloat = 10         // 单元格之间的最小 行间距
 private let layout_minimumInteritemSpacing: CGFloat = 0     // 单元格之间的最小 列间距
@@ -18,8 +20,13 @@ private let itemWidth: CGFloat = screenW / 2 - 3 * magin    // 单元格宽度
 private let itemHeight: CGFloat = 30                        // 单元格高度
 private let headerHeight: CGFloat = 40                      // 集合视图头部高度
 
-/*
+
 class SearchViewController: UIViewController {
+    
+    
+    /// 数据
+    let dataArray = [["奖励金", "1"], ["电子社保卡", "2"], ["生活缴费", "3"], ["社保查询", "4"], ["神奇女侠", "5"], ["蚂蚁花呗", "6"], ["共享单车", "7"], ["国际驾照认证件领取", "8"], ["电影", "9"], ["蚂蚁森林", "10"], ["蚂蚁宝卡", "11"], ["蚂蚁借呗", "12"]]
+    
     
     // MARK: - 懒加载
     /// 模型vedioListModels对象
@@ -37,19 +44,18 @@ class SearchViewController: UIViewController {
         // 设置搜索框风格
 //        searchBar.searchBarStyle = UISearchBarStyle.default
         
-        
         // 开始输入时，背景是否变暗
 //        searchController.dimsBackgroundDuringPresentation = false
         
         
-        // 设置搜索条渲染颜色 , 光标颜色
+        // 设置搜索条渲染颜色 : 光标颜色
         searchBar.tintColor = LightBlue
         
         // 设置搜索条背景颜色
 //        searchBar.barTintColor = UIColor.yellow
         
         // 设置搜索框的提示文字
-        searchBar.placeholder = "蚂蚁森林"
+        //searchBar.placeholder = "蚂蚁森林"
         
         // 自动调整搜索框大小
         searchBar.sizeToFit()
@@ -62,13 +68,12 @@ class SearchViewController: UIViewController {
 //        searchField.textColor = [UIColor blackColor];
         
         
-        
         // MARK: 改变提示文字颜色\输入框背景
         
         // 现在我们来获取它， 并且设置颜色为咖啡色
         
         // 首先取出textfield
-        //let searchBarTextField: UIView = (searchBar.subviews.first?.subviews.first)!
+//        let searchBarTextField: UIView = (searchBar.subviews.first?.subviews.first)!
 
         // 首先取出textfield
 //        let searchFiled = searchController.searchBar.value(forKey: "searchFiled") as? UITextField
@@ -78,7 +83,7 @@ class SearchViewController: UIViewController {
         
         // 然后取出textField的placeHolder
 //        let PlaceholderLabel = searchFiled?.value(forKey: "placeholderLabel") as? UILabel
-//        PlaceholderLabel?.textColor = UIColor.red
+//        PlaceholderLabel?.textColor = UIColor.white
         
         // 设置输入框里面的背景颜色
 //        searchFiled?.backgroundColor = UIColor(red:0.19, green:0.24, blue:0.29, alpha:1.00)
@@ -86,9 +91,10 @@ class SearchViewController: UIViewController {
         
         searchBar.delegate = self
         
+        // 设置 searchBar 放大镜图标
+        searchBar.setImage(UIImage(named: "ap_titlebar_search_content"), for: .search, state: .normal)
+
         return searchBar
-        
-        
 //        return searchController
         
     }()
@@ -107,8 +113,8 @@ class SearchViewController: UIViewController {
         // 创建集合视图, 并设置相关属性
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH), collectionViewLayout: layout)
         
-        collectionView.backgroundColor = .white                   // 背景色
-        collectionView.alwaysBounceVertical = true                  // 总是垂直弹动
+        collectionView.backgroundColor = .white       // 背景色
+        collectionView.alwaysBounceVertical = true      // 总是垂直弹动
         
         // 使得 collectionView 的高度/宽度 随着父控件拉伸而拉伸
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -130,9 +136,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+    
         configUI()
-//        requestSearchData()
+      //  requestSearchData()
+        
     }
     
     
@@ -141,6 +148,9 @@ class SearchViewController: UIViewController {
         
         // 设置导航栏的标题视图 \ 左右Item
         navigationItem.titleView = searchBar
+        
+        searchBar.placeholder = dataArray[0][0]
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "  取消", style: .plain, target: self, action: #selector(backButtonClick))
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 15)], for: .normal)
@@ -155,10 +165,10 @@ class SearchViewController: UIViewController {
         // searchBar 不再是第一响应
         searchBar.resignFirstResponder()
         
-//        searchBarController.searchBar.resignFirstResponder()
+       // searchBarController.searchBar.resignFirstResponder()
         
         // 非模态返回
-//        _ = navigationController?.popViewController(animated: true)
+       // _ = navigationController?.popViewController(animated: true)
         
         // 模态返回
         _ = navigationController?.dismiss(animated: true, completion: nil)
@@ -169,24 +179,34 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDataSource {
  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vedioList_Models.count
+//        return vedioList_Models.count
+        return dataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         // 根据模型取出属性
-        let rankNumber = vedioList_Models[indexPath.item].rank          //热门搜索数字
-        let hotTitle = vedioList_Models[indexPath.item].keyword         //热门搜索关键字
+//        let rankNumber = vedioList_Models[indexPath.item].rank          //热门搜索数字
+//        let hotTitle = vedioList_Models[indexPath.item].keyword         //热门搜索关键字
+        
+        let hotTitle = dataArray[indexPath.row][0]        //热门搜索关键字
+        let rankNumber = dataArray[indexPath.row][1]     //热门搜索数字
+        
         
         // 创建cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HotSearchCollectionViewCell
        
-        cell.deleteButton.isHidden = true                               // 隐藏删除按钮
         cell.hotButton.setTitle(hotTitle, for: .normal)                 // 设置热门搜索中按钮的文字
+        cell.RankLabel.text = "\(rankNumber)"
+        
+        
+        cell.deleteButton.isHidden = true                               // 隐藏删除按钮
         cell.RankLabel.text = "\(rankNumber)"                           // 设置排行榜文字
+   
+        let rank = Int(rankNumber)
+        
         
         // 根据模型 rank 属性 设置标签背景色
-        switch rankNumber {
+        switch rank! {
         case 1:
             cell.RankLabel.backgroundColor = UIColor.red
         case 2:
@@ -195,6 +215,7 @@ extension SearchViewController: UICollectionViewDataSource {
             cell.RankLabel.backgroundColor = UIColor(red:0.88, green:0.46, blue:0.13, alpha:1.00)
         default:
             cell.RankLabel.backgroundColor = UIColor(red:0.21, green:0.27, blue:0.31, alpha:1.00)
+            
             break
         }
         return cell
@@ -210,7 +231,7 @@ extension SearchViewController: UICollectionViewDataSource {
         /// 头部标签
         let headerLabel = UILabel()
         headerLabel.text = "热门搜索"
-        headerLabel.textColor = UIColor.white
+        headerLabel.textColor = UIColor.lightGray
         headerLabel.font = UIFont.systemFont(ofSize: 15)
         
         /// 换一换按钮
@@ -281,7 +302,7 @@ extension SearchViewController: UISearchBarDelegate {
     
 }
 
-
+/*
 // MARK: 请求搜索数据
 extension SearchViewController {
     

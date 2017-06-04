@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2013C21EE3E096009B341A /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2013C11EE3E096009B341A /* PopViewController.swift */; };
 		6B3DFE171EBA25D0002F2D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */; };
 		6B3DFE1E1EBA25D0002F2D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */; };
 		6B3DFE211EBA25D0002F2D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DFE1F1EBA25D0002F2D09 /* LaunchScreen.storyboard */; };
@@ -31,8 +32,9 @@
 
 /* Begin PBXFileReference section */
 		627427278701734693AE510B /* Pods-Alipay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alipay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alipay/Pods-Alipay.debug.xcconfig"; sourceTree = "<group>"; };
+		6B2013C11EE3E096009B341A /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		6B3DFE131EBA25D0002F2D09 /* Alipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
+		6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3DFE201EBA25D0002F2D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3DFE221EBA25D0002F2D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +70,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B2013BF1EE3E096009B341A /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				6B2013C01EE3E096009B341A /* Controller */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		6B2013C01EE3E096009B341A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B2013C11EE3E096009B341A /* PopViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		6B3DFE0A1EBA25D0002F2D09 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +109,7 @@
 			children = (
 				6B3DFE4A1EBA2D64002F2D09 /* Classes */,
 				6B3DFE1D1EBA25D0002F2D09 /* Assets.xcassets */,
+				6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */,
 				6B3DFE1F1EBA25D0002F2D09 /* LaunchScreen.storyboard */,
 				6B3DFE221EBA25D0002F2D09 /* Info.plist */,
 			);
@@ -189,6 +208,7 @@
 		6B3DFE561EBA2D64002F2D09 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6B2013BF1EE3E096009B341A /* Add */,
 				6B4A089D1EC59CDE00B2FC2D /* Search */,
 				6B3DFE571EBA2D64002F2D09 /* Home.storyboard */,
 				6B3DFE6B1EBA3898002F2D09 /* HomeController.swift */,
@@ -217,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				6B3DFE5B1EBA2D64002F2D09 /* Main.storyboard */,
-				6B3DFE161EBA25D0002F2D09 /* AppDelegate.swift */,
 				6B3DFE5C1EBA2D64002F2D09 /* TabBarController.swift */,
 			);
 			path = Main;
@@ -442,6 +461,7 @@
 				6B4A08A71EC5A51C00B2FC2D /* FriendsController.swift in Sources */,
 				6B4A08A31EC59CDE00B2FC2D /* HotSearchCollectionViewCell.swift in Sources */,
 				6B3DFE661EBA2D64002F2D09 /* TabBarController.swift in Sources */,
+				6B2013C21EE3E096009B341A /* PopViewController.swift in Sources */,
 				6B3DFE6A1EBA31B3002F2D09 /* Alipay+Extension.swift in Sources */,
 				6B4A08A51EC5A3E700B2FC2D /* MineController.swift in Sources */,
 				6B87F7D01EC4EC8D0081C937 /* HomeTopViewButton.swift in Sources */,

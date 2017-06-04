@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2NB-tK-a0I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2NB-tK-a0I">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                     <tabBarItem key="tabBarItem" title="口碑" image="TabBar_Businesses" selectedImage="TabBar_Businesses_Sel" id="a4q-DQ-Plc"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="7hZ-lj-xch">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7hZ-lj-xch">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -46,7 +46,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLm-rc-ib2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493.60000000000002" y="465.51724137931041"/>
+            <point key="canvasLocation" x="270" y="466"/>
         </scene>
     </scenes>
     <resources>
