@@ -17,7 +17,11 @@ class HomeTopView: UIView {
                                    ["imageName": "shoukuan", "title": "收钱"],
                                    ["imageName": "home_card", "title": "卡包"],
     ]
-
+    
+    var btn: HomeTopViewButton = {
+        let btn = HomeTopViewButton()
+        return btn
+    }()
     
     /// 初始化方法
     override init(frame: CGRect) {
@@ -30,14 +34,12 @@ class HomeTopView: UIView {
     
     }
     
-    /// 设置 UI 界面
+    /// 设置UI界面
     fileprivate func setupUI() {
         
         setupHomeTopViewWithBtn()   
     }
     
-    
- 
     /// 设置首页功能按钮视图的按钮
     private func setupHomeTopViewWithBtn() {
         
@@ -64,11 +66,10 @@ class HomeTopView: UIView {
             let column = i % 4                          // 列: 每行4个按钮
             let btnX = CGFloat(column + 1) * margin + CGFloat(column) * btnWidth
             
-            let btn = HomeTopViewButton.homeTopViewButton(imageName: imageName, title: title)
-            
+            btn = HomeTopViewButton.homeTopViewButton(imageName: imageName, title: title)
+            btn.tag = i
             btn.frame = CGRect(x: btnX, y: btnY, width: btnWidth, height: btnHeight)
-            
-            btn.addTarget(self, action: #selector(btnclicked), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(btnclicked(_:)), for: .touchUpInside)
             
             
             // 2>. 添加按钮到视图中
@@ -80,11 +81,40 @@ class HomeTopView: UIView {
     
     
     /// 按钮点击事件
-    @objc private func btnclicked() {
+    @objc private func btnclicked(_ btn: UIButton) {
         
-        print("点击了......")
+        // 获取 根视图控制器上 添加的所有控制器
+        let controllers = UIApplication.shared.keyWindow?.rootViewController?.childViewControllers
+        
+        // 获取首页控制器
+        let HomeVC = controllers![0].childViewControllers[0]
+        
+        switch btn.tag {
+        case 0:
+            
+            print("\(btn.titleLabel!.text!) - \(btn.tag)")
+           
+            // 获取storyboard 二维码控制器
+            let storyBoard = UIStoryboard(name: "QRCodeController", bundle: nil)
+            let qrcodeVC = storyBoard.instantiateInitialViewController()
+            
+            HomeVC.present(qrcodeVC!, animated: true, completion: nil)      // motal展现
+            
+            // 非 motal 展现
+            //rootVC?[0].navigationController?.pushViewController(qrcodeVC!, animated: true)
+           // _ = navigationController?.pushViewController(qrcVC!, animated: true)
+
+        case 1:
+            print("\(btn.titleLabel!.text!) - \(btn.tag)")
+        case 2:
+            print("\(btn.titleLabel!.text!) - \(btn.tag)")
+        case 3:
+            print("\(btn.titleLabel!.text!) - \(btn.tag)")
+        default:
+            print("点击了......")
+        }
+        
     }
- 
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

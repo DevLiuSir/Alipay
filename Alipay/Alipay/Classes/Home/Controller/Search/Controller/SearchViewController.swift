@@ -214,8 +214,8 @@ extension SearchViewController: UICollectionViewDataSource {
         case 3:
             cell.RankLabel.backgroundColor = UIColor(red:0.88, green:0.46, blue:0.13, alpha:1.00)
         default:
-            cell.RankLabel.backgroundColor = UIColor(red:0.21, green:0.27, blue:0.31, alpha:1.00)
-            
+//            cell.RankLabel.backgroundColor = UIColor(red:0.21, green:0.27, blue:0.31, alpha:1.00)
+            cell.RankLabel.backgroundColor = darkBlue
             break
         }
         return cell

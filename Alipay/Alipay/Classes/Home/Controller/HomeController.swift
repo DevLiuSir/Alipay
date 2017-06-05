@@ -28,14 +28,13 @@ class HomeController: UIViewController {
         return listView
     }()
     
-    
     /// 搜索栏
     fileprivate lazy var searchBarController : UISearchController = {
        
         let searchController = UISearchController(searchResultsController: nil)
         
         // 设置搜索框的风格
-        //        searchController.searchBar.barStyle = UIBarStyle.blackTranslucent
+//        searchController.searchBar.barStyle = UIBarStyle.blackTranslucent
         
         // 开始输入时，背景是否变暗
         searchController.dimsBackgroundDuringPresentation = false
@@ -224,12 +223,10 @@ extension HomeController: UIPopoverPresentationControllerDelegate {
 extension HomeController : UISearchBarDelegate {
     
     // MARK: touchesBegan: 点击屏幕时,触发该方法
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        // 设置 searchBar 不再是第一响应
-        //        searchBarController.searchBar.resignFirstResponder()
-        
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        // 设置 searchBar 不再是第一响应
+//        searchBarController.searchBar.resignFirstResponder()
+//    }
     
     // MARK: searchBarShouldBeginEditing: 当点击搜索框进行编辑时,触发该方法
     // false: searchBar 成为第一响应者  true: searchBar 不成为第一响应者
@@ -257,10 +254,10 @@ extension HomeController : UISearchBarDelegate {
         let PlaceholderLabel = searchFiled?.value(forKey: "placeholderLabel") as? UILabel
         
         // 1.4 设置提示文字颜色
-        PlaceholderLabel?.textColor = UIColor.white
+        PlaceholderLabel?.textColor = .white
         
         // 1.5 设置文本输入框, 输入文本颜色
-        searchFiled?.textColor = UIColor.white
+        searchFiled?.textColor = .white
         
         // 2.0 设置 搜索控制器 为导航控制器的 根控制器
         let nav = UINavigationController(rootViewController: search)
@@ -276,8 +273,6 @@ extension HomeController : UISearchBarDelegate {
         
         // 非模态跳转
         //  navigationController?.pushViewController(search, animated: true)
-        
-        
         // 延迟1秒执行
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * NSEC_PER_SEC))/Double(NSEC_PER_SEC) , execute: {
             
