@@ -85,20 +85,20 @@ extension PopViewController {
         
         print(dataArray[indexPath.row])
         
-//        
-//        if indexPath.row == 0 {
-//            
-//            // 获取storyboard 二维码控制器
-//            let storyBoard = UIStoryboard(name: "QRCodeController", bundle: nil)
-//            
-//            let qrcVC = storyBoard.instantiateInitialViewController()
-//            
-//            // motal展现
-//            present(qrcVC!, animated: true, completion: nil)
-//            // 非 motal 展现
-////            _ = navigationController?.pushViewController(qrcVC!, animated: true)
-//
-//        }
+        
+        if indexPath.row == 2 {
+            
+            // 获取storyboard 二维码控制器
+            let storyBoard = UIStoryboard(name: "QRCodeController", bundle: nil)
+            
+            let qrcVC = storyBoard.instantiateInitialViewController()
+            
+            // motal展现
+            present(qrcVC!, animated: true, completion: nil)
+            // 非 motal 展现
+//            _ = navigationController?.pushViewController(qrcVC!, animated: true)
+
+        }
         
     }
     

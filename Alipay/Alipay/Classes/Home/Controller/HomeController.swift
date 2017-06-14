@@ -9,11 +9,29 @@
 import UIKit
 import SnapKit
 
+
+/// 自定义导航栏完全不透明时的偏移量边界(根据需求设定)
+private let alphaChangeBoundary = screenW * (212 / 375) - 64
+
+/// 功能按钮视图高度
+private let topViewH: CGFloat = 115
+
+
 class HomeController: UIViewController {
     
     
-    // MARK: - 懒加载控件
+    /// 按钮数据数组
+    fileprivate let buttonsInfo = [["imageName": "pay_mini", "title": ""],
+                                   ["imageName": "search_mini", "title": ""],
+                                   ["imageName": "scan_mini", "title": ""],
+   ]
+
     
+    
+    
+    
+    
+    // MARK: - 懒加载
     /// 顶部功能按钮视图
     fileprivate lazy var topView: HomeTopView = {
         let topView = HomeTopView()
@@ -26,6 +44,70 @@ class HomeController: UIViewController {
         let listView = UIView()
         listView.backgroundColor = UIColor.orange
         return listView
+    }()
+
+
+    /// 覆盖导航栏
+    fileprivate lazy var coverNavView: UIView = {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: navigationH + statusH))
+        view.backgroundColor = LightBlue
+        
+        let payButton = UIButton(type: UIButtonType.custom)
+        payButton.setImage(#imageLiteral(resourceName: "pay_mini"), for: UIControlState.normal)
+        payButton.sizeToFit()
+  
+        
+        var newFrame = payButton.frame
+        newFrame.origin.y = 30
+        newFrame.origin.x = 10
+        newFrame.size.width = newFrame.size.width + 10
+        payButton.frame = newFrame
+        
+        let scanButton = UIButton(type: UIButtonType.custom)
+        scanButton.setImage(#imageLiteral(resourceName: "scan_mini"), for: UIControlState.normal)
+        scanButton.sizeToFit()
+        
+        
+        newFrame.origin.x = newFrame.origin.x + 40 + newFrame.size.width
+        scanButton.frame = newFrame
+
+        let searchButton = UIButton(type: UIButtonType.custom)
+        searchButton.setImage(#imageLiteral(resourceName: "search_mini"), for: UIControlState.normal)
+        searchButton.sizeToFit()
+        newFrame.origin.x = newFrame.origin.x + 40 + newFrame.size.width
+        searchButton.frame = newFrame
+        
+        view.addSubview(scanButton)
+        view.addSubview(payButton)
+        view.addSubview(searchButton)
+        
+        view.alpha = 0
+        return view
+    }()
+ 
+
+    lazy var navView: UIView = {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenW, height: 64))
+        view.backgroundColor = darkBlue
+        return view
+        
+    }()
+
+    /// 表格视图
+    fileprivate lazy var tableView: UITableView = { [weak self] in
+        
+        let tableView = UITableView(frame: (self?.view.bounds)!, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        // 设置表格顶部间距, 使得HaderView不被遮挡
+        tableView.contentInset = UIEdgeInsets(top: topViewH, left: 0, bottom: 0, right: 0)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "id")
+        
+        return tableView
+        
     }()
     
     /// 搜索栏
@@ -44,7 +126,6 @@ class HomeController: UIViewController {
         
         // 设置搜索框的提示文字, 后面加上空格, 使得放大镜\文字都 居左显示
         searchController.searchBar.placeholder = "蚂蚁森林                                                    "
-        
         //向下的箭头
 //        searchController.searchBar.showsSearchResultsButton = true
         
@@ -89,6 +170,35 @@ class HomeController: UIViewController {
         
         configUI()
     }
+    
+    
+    // 视图即将可见时, 调用
+    override func viewWillAppear(_ animated: Bool) {
+        //界面将显示隐藏系统导航栏，添加自定义导航栏，防止从后面界面pop回此界面时导航栏显示有问题
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.view.insertSubview(coverNavView, at: 1)
+        
+    }
+    
+    
+    // 视图即将消失时, 调用
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        //界面将要消失时，显示系统导航栏，移除自定义的导航栏
+        coverNavView.removeFromSuperview()
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        //调用此方法,解决滑动返回的bug
+        performSelector(onMainThread: #selector(delayHidden), with: animated, waitUntilDone: false)
+        
+    }
+    
+    
+    @objc private func delayHidden() {
+         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
 }
 
 // MARK: - 配置UI界面
@@ -98,21 +208,34 @@ extension HomeController {
     fileprivate func configUI() {
         
         configNavigationBar()
+        layoutView()
+        
+    }
+    
+    
+    /// 布局界面
+    private func layoutView() {
         
         // 添加控件
-        view.addSubview(topView)
-        view.addSubview(listView)
+        view.addSubview(tableView)
+        view.insertSubview(topView, aboveSubview: tableView)
         
+//        view.addSubview(navView)
+//        view.addSubview(topView)
+//        view.addSubview(listView)
+//        view.addSubview(coverNavView)
+
+
         // 使用 SnapKit 布局
         topView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(0)
-            make.height.equalTo(115)
+            make.height.equalTo(topViewH)
         }
         
-        listView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalToSuperview()
-            make.top.equalTo(topView.snp.bottom).offset(0)
-        }
+//        listView.snp.makeConstraints { (make) in
+//            make.left.bottom.right.equalToSuperview()
+//            make.top.equalTo(topView.snp.bottom).offset(0)
+//        }
     }
     
     /// 配置导航栏
@@ -134,14 +257,12 @@ extension HomeController {
         /// 通讯录按钮
         let addressBook = UIButton()
         addressBook.setImage(UIImage(named: "home_contacts"), for: .normal)
-//        addressBook.sizeToFit()
         addressBook.frame = CGRect(origin: CGPoint.zero, size: size)
         addressBook.addTarget(self, action: #selector(addressBookBtnClicked), for: .touchUpInside)
         
         /// 加号按钮
         let addBtn = UIButton()
         addBtn.setImage(UIImage(named: "ap_more"), for: .normal)
-//        addBtn.sizeToFit()
         addBtn.frame = CGRect(origin: CGPoint.zero, size: size)
         addBtn.addTarget(self, action: #selector(addBtnClicked(_:)), for: .touchUpInside)
         
@@ -150,7 +271,7 @@ extension HomeController {
         
         navigationItem.rightBarButtonItems = [addBtnItem, addressBookItem]
     }
-    
+ 
 }
 
 // MARK: - 事件监听
@@ -222,12 +343,7 @@ extension HomeController: UIPopoverPresentationControllerDelegate {
 // MARK: - 遵守 UISearchBarDelegate 协议
 extension HomeController : UISearchBarDelegate {
     
-    // MARK: touchesBegan: 点击屏幕时,触发该方法
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        // 设置 searchBar 不再是第一响应
-//        searchBarController.searchBar.resignFirstResponder()
-//    }
-    
+
     // MARK: searchBarShouldBeginEditing: 当点击搜索框进行编辑时,触发该方法
     // false: searchBar 成为第一响应者  true: searchBar 不成为第一响应者
     
@@ -280,9 +396,6 @@ extension HomeController : UISearchBarDelegate {
             search.searchBar.becomeFirstResponder()
         })
         
-        
-        
-        
         return false
     }
     
@@ -290,9 +403,139 @@ extension HomeController : UISearchBarDelegate {
 }
 
 
+// MARK: - 遵守 UITableViewDelegate 协议
+extension HomeController: UITableViewDelegate {
+
+/*
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+     
+         contentOffset: 即偏移量,contentOffset.y = 内容的顶部和frame顶部的差值,contentOffset.x = 内容的左边和frame左边的差值.
+         contentInset:  即内边距,contentInset = 在内容周围增加的间距(粘着内容),contentInset的单位是UIEdgeInsets
+         
+         */
+        // 偏移量: -200 + 顶部边距: 200, 等于0
+//        let offsetY = scrollView.contentOffset.y + scrollView.contentInset.top
+        
+        
+    
+    //let offsetY = scrollView.contentOffset.y
+        
+      //  print(offsetY)
+    
+
+/*
+        if offsetY <= 115 && offsetY > 0 {
+        
+        
+//        if offsetY > 0 {
+            
+            
+            topView.frame.size.height = 115
+            topView.frame.origin.y = -offsetY
+            coverNavView.frame.origin.y = -64
+            
+            let topViewMinY = 115 - navigationH - statusH
+            
+            // 取最小值
+            topView.frame.origin.y =  -min(topViewMinY, offsetY)
+
+            
+            let progress = 1 - (offsetY / topViewMinY)
+            topView.alpha = progress
+            coverNavView.alpha = progress
+            navigationController?.navigationBar.alpha = progress
+
+ /*
+            topView.frame = topView.frame
+            topView.frame.origin.y = 0
+            
+ */
+            
+            //处理透明度
+            let alpha = (1 - offsetY / 115 * 2.5 ) > 0 ? (1 - offsetY / 115 * 2.5 ) : 0
+            
+            if alpha > 0.5 {
+                topView.alpha = alpha * 2 - 1
+                coverNavView.alpha = 0
+            } else {
+                topView.alpha = 0
+                coverNavView.alpha = 1 - alpha * 2
+            }
+
+            
+        } else if offsetY <= 0 {
+            topView.frame = topView.frame
+            topView.frame.origin.y = 0
+            topView.alpha = 1
+            coverNavView.alpha = 0
+            coverNavView.frame.origin.y = -64
+            
+        }
+    }
+    
+    
+    
+*/
+    
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            
+            
+            let offsetY = scrollView.contentOffset.y
+            print(offsetY)
+            
+            if offsetY >= 0 && offsetY <= alphaChangeBoundary {
+                coverNavView.backgroundColor = LightBlue.withAlphaComponent(offsetY / alphaChangeBoundary)
+            }else if offsetY > alphaChangeBoundary {
+                coverNavView.backgroundColor = LightBlue
+            }else {
+                coverNavView.backgroundColor = LightBlue.withAlphaComponent(0)
+            }
+            
+            if offsetY <= 0 {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.coverNavView.alpha = 0
+                    self.topView.alpha = 1
+                    //self.topView.btn.isHidden = false
+                    self.topView.frame.size.height = topViewH
+                })
+                
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+            }else{
+               
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.coverNavView.alpha = 1
+                    self.topView.alpha = 0
+                    //self.topView.btn.isHidden = true
+                    self.topView.frame.size.height = 0
+                    
+                })
+                
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+            }
+            
+        }
+
+    }
 
 
 
+// MARK: - 遵守 UITableViewDataSource 协议
+extension HomeController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath)
+        
+        cell.textLabel?.text = "\(indexPath.row)"
+        return cell
+    }
+}
 
 
 

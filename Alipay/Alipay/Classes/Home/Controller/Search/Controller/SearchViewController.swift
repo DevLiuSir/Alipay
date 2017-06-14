@@ -270,6 +270,13 @@ extension SearchViewController: UICollectionViewDataSource {
 
 // MARK: - UISearchBarDelegate 代理协议
 extension SearchViewController: UISearchBarDelegate {
+    
+    
+    // MARK: touchesBegan: 点击屏幕时,触发该方法
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 设置 searchBar 不再是第一响应
+        searchBar.resignFirstResponder()
+    }
 
     // MARK: textDidChange: 当搜索框内文本发生改变时,触发该方法
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
